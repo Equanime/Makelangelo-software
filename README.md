@@ -1,4 +1,6 @@
-﻿# Makelangelo Software
+﻿# [IFT3913 : Rapport](EDITS.md)
+
+# Makelangelo Software
 
 ![workflow](https://github.com/MarginallyClever/Makelangelo-software/actions/workflows/maven.yml/badge.svg) 
 [![Crowdin](https://badges.crowdin.net/makelangelo-software/localized.svg)](https://crowdin.com/project/makelangelo-software)
