@@ -15,7 +15,7 @@ Dans [Makelangelo > com.marginallyclever.makelangelo.makeart.io > LoadGCode.java
 
 Pour s'habituer à faire des tests unitaires, nous avons fait les tests pour
 
-> [Makelangelo > com.marginallyclever.convenience > NameThatColor.java](https://3913.udem.col1n.fr/com.marginallyclever.convenience/NameThatColor.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestLineInterpolator.java)**
+> [Makelangelo > com.marginallyclever.convenience > NameThatColor.java](https://3913.udem.col1n.fr/com.marginallyclever.convenience/NameThatColor.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/NameThatColorTest.java)**
 
 > [Makelangelo > com.marginallyclever.convenience > ColorRGB.java](https://3913.udem.col1n.fr/com.marginallyclever.convenience/ColorRGB.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestColorRGB.java)**
 
@@ -49,3 +49,19 @@ alias mvnt='mvntest -e'
 alias mvnci='mvncleaninstall'
 alias xvfb='pkill Xvfb'
 ```
+
+
+## Résumé des tests ajoutés
+1. [Makelangelo > com.marginallyclever.makelangelo.makeart.io > LoadGCode > canLoad](src/test/java/com/marginallyclever/makelangelo/makeart/io/LoadGCodeTest.java#L66)
+1. [Makelangelo > com.marginallyclever.convenience > NameThatColor > colorFinderTest](src/test/java/com/marginallyclever/convenience/NameThatColorTest.java#L26)
+1. [Makelangelo > com.marginallyclever.convenience > NameThatColor > colorFinderClass](src/test/java/com/marginallyclever/convenience/NameThatColorTest.java#L46)
+1. [Makelangelo > com.marginallyclever.convenience > Point2D > testNormalize](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L42)
+1. [Makelangelo > com.marginallyclever.convenience > Point2D > testDistance](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L76)
+1. [Makelangelo > com.marginallyclever.convenience > Point2D > testDistanceSquared](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L89)
+1. [Makelangelo > com.marginallyclever.convenience > Point2D > testEqualsEpsilon](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L102)
+1. [Makelangelo > com.marginallyclever.convenience > LineInterpolator > testGetPoint](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L30)
+1. [Makelangelo > com.marginallyclever.convenience > LineInterpolator > testGetTangent](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L44)
+1. [Makelangelo > com.marginallyclever.convenience > LineInterpolator > testGetNormal](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L104)
+1. [Makelangelo > com.marginallyclever.convenience > QuadGraph > testInsert](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L40)
+1. [Makelangelo > com.marginallyclever.convenience > QuadGraph > testSearch](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L63)
+1. [Makelangelo > com.marginallyclever.convenience > QuadGraph > testCountPoints](src/test/java/com/marginallyclever/convenience/TestPoint2D.java#L136)
