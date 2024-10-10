@@ -33,7 +33,8 @@ public class TestQuadGraph {
     public void testSplit() {
         instance.split();
 
-        assertNotNull(instance.children);
+        assertNull(instance.children);
+        assertEquals(0, instance.sites.size());
     }
 
     @Test
