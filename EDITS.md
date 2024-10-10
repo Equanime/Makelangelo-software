@@ -1,6 +1,6 @@
 ##  Coverage
 Origine : 24.46 %
-Maintenant : 27.36 %
+Maintenant : 27.33 %
 [![Github Action](https://github.com/Equanime/Makelangelo-software/actions/workflows/test.yml/badge.svg)](https://github.com/Equanime/Makelangelo-software/actions/workflows/test.yml)
 
 ## Résumé du parcours
