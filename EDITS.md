@@ -4,7 +4,7 @@ Origine :
 ## Résumé du parcours
 Premier test unitaire :
 POur tester si j'arrivais à faire un test unitaire, j'ai vérifié une fonction de tan :
-> [Makelangelo > com.marginallyclever.makelangelo.makeart.io > LoadGCode.java](£/com.marginallyclever.makelangelo.makeart.io/LoadGCode.java.html#L39) **[>class<]()**
+> [Makelangelo > com.marginallyclever.makelangelo.makeart.io > LoadGCode.java](£/com.marginallyclever.makelangelo.makeart.io/LoadGCode.java.html#L39) **[>class<](src/test/java/com/marginallyclever/makelangelo/makeart/io/LoadGCodeTest.java)**
 
 Cette méthode étant privée, il fallait utiliser java.lang.reflect.Method pour autoriser un accès hors classe
 
