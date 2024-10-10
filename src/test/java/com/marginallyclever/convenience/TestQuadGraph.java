@@ -34,6 +34,7 @@ public class TestQuadGraph {
         instance.split();
 
         assertNotNull(instance.children);
+        assertEquals(0, instance.sites.size());
     }
 
     @Test
@@ -128,7 +129,6 @@ public class TestQuadGraph {
 
         Point2D result = instance.search(p);
 
-        assertNotNull(result);
         assertTrue(result == e || result == e2);
     }
 
