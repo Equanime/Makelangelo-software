@@ -4,32 +4,32 @@ Origine :
 ## Résumé du parcours
 Premier test unitaire :
 POur tester si j'arrivais à faire un test unitaire, j'ai vérifié une fonction de tan :
-> [Makelangelo > com.marginallyclever.makelangelo.makeart.io > LoadGCode.java](£/com.marginallyclever.makelangelo.makeart.io/LoadGCode.java.html#L39) **[>class<](src/test/java/com/marginallyclever/makelangelo/makeart/io/LoadGCodeTest.java)**
+> [Makelangelo > com.marginallyclever.makelangelo.makeart.io > LoadGCode.java](https://3913.udem.col1n.fr/com.marginallyclever.makelangelo.makeart.io/LoadGCode.java.html#L39) **[>class<](src/test/java/com/marginallyclever/makelangelo/makeart/io/LoadGCodeTest.java)**
 
 Cette méthode étant privée, il fallait utiliser java.lang.reflect.Method pour autoriser un accès hors classe
 
 Pour détourner les protections de Java, il a fallu ajouter un argument [pom.xml:239](pom.xml#L239) : `--add-opens java.base/java.util=ALL-UNNAMED`
 
-Dans [Makelangelo > com.marginallyclever.makelangelo.makeart.io > LoadGCode.java](£/com.marginallyclever.makelangelo.makeart.io/LoadGCode.java.html#L39), passage de 54% à 57% du coverage global du fichier, on peut y aller
+Dans [Makelangelo > com.marginallyclever.makelangelo.makeart.io > LoadGCode.java](https://3913.udem.col1n.fr/com.marginallyclever.makelangelo.makeart.io/LoadGCode.java.html#L39), passage de 54% à 57% du coverage global du fichier, on peut y aller
 
 Pour s'habituer à faire des tests unitaires, nous avons fait les tests pour
 
-> [Makelangelo > com.marginallyclever.convenience > NameThatColor.java](£/com.marginallyclever.convenience/NameThatColor.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestLineInterpolator.java)**
+> [Makelangelo > com.marginallyclever.convenience > NameThatColor.java](https://3913.udem.col1n.fr/com.marginallyclever.convenience/NameThatColor.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestLineInterpolator.java)**
 
-> [Makelangelo > com.marginallyclever.convenience > ColorRGB.java](£/com.marginallyclever.convenience/ColorRGB.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestColorRGB.java)**
+> [Makelangelo > com.marginallyclever.convenience > ColorRGB.java](https://3913.udem.col1n.fr/com.marginallyclever.convenience/ColorRGB.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestColorRGB.java)**
 
-> [Makelangelo > com.marginallyclever.makelangelo.makeart.imageconverter > Converter_FlowField.java](£/com.marginallyclever.makelangelo.makeart.imageconverter/Converter_FlowField.html) **[>class<](src/test/java/com/marginallyclever/makelangelo/makeart/imageconverter/Converter_FlowFieldTest.java)**
+> [Makelangelo > com.marginallyclever.makelangelo.makeart.imageconverter > Converter_FlowField.java](https://3913.udem.col1n.fr/com.marginallyclever.makelangelo.makeart.imageconverter/Converter_FlowField.html) **[>class<](src/test/java/com/marginallyclever/makelangelo/makeart/imageconverter/Converter_FlowFieldTest.java)**
 
 Pour apprendre à faire des tests avec JavaFaker (on veut le bonus)
-> [Makelangelo > com.marginallyclever.convenience > Point2D.java](£/com.marginallyclever.convenience/Point2D.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestPoint2D.java)**
+> [Makelangelo > com.marginallyclever.convenience > Point2D.java](https://3913.udem.col1n.fr/com.marginallyclever.convenience/Point2D.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestPoint2D.java)**
 
-#### Ensuite on va continuer à compléter [Makelangelo > com.marginallyclever.convenience](£/com.marginallyclever.convenience/index.source.html)
+#### Ensuite on va continuer à compléter [Makelangelo > com.marginallyclever.convenience](https://3913.udem.col1n.fr/com.marginallyclever.convenience/index.source.html)
 (On a décidé de ne pas revenir en arrière : on pourrait javafaker les couleurs)
 
 > [Makelangelo > com.marginallyclever.convenience > LineInterpolator.java
-](£/com.marginallyclever.convenience/LineInterpolator.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestLineInterpolator.java)**
+](https://3913.udem.col1n.fr/com.marginallyclever.convenience/LineInterpolator.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestLineInterpolator.java)**
 
-> [Makelangelo > com.marginallyclever.convenience > QuadGraph.java](£/com.marginallyclever.convenience/QuadGraph.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestQuadGraph.java)**
+> [Makelangelo > com.marginallyclever.convenience > QuadGraph.java](https://3913.udem.col1n.fr/com.marginallyclever.convenience/QuadGraph.java.html) **[>class<](src/test/java/com/marginallyclever/convenience/TestQuadGraph.java)**
 
 ## Etapes intéressantes du projet 
 - Pas d'écran
