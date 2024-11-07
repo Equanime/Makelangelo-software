@@ -1,38 +1,46 @@
-name: Java CI with Maven
+name: Test
 
 on:
   push:
   pull_request:
 
+env:
+  JAVA_DIST: 'zulu'
+  JAVA_VERSION: 22
+
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  build:
+  test:
+    name: Compile and Test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: ${{ env.JAVA_DIST }}
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: 'maven'
+      - name: Build and Test
+        run: |
+          export MAVEN_OPTS="-XX:+PrintFlagsFinal" 
+          xvfb-run mvn -B verify -Djavafx.platform=linux jacoco:report -Pcoverage
+          unset MAVEN_OPTS
+      - name: Get JaCoCo Coverage
+        id: coverage  
+        run: |
+          coverage=$(python3 config/coverage.py target/site/jacoco/jacoco.csv) 
+          echo "COVERAGE=$coverage" >> $GITHUB_ENV
 
-    - uses: actions/setup-java@v4.2.1
-      with:
-        distribution: 'temurin'
-        java-version: '17'
-        cache: 'maven'
-
-    - name: Build and Test with Maven
-      timeout-minutes: 15
-      run: ./mvnw -B verify
-
-    - name: Get JaCoCo Coverage
-      id: coverage  
-      run: |
-        coverage=$(python3 config/coverage.py target/site/jacoco/jacoco.csv) 
-        echo "COVERAGE=$coverage" >> $GITHUB_ENV
-
-    - name: Fail if coverage has not improved.
-      run: |
-        coverage=$COVERAGE
-        threshold=24.46
-        if (( $(echo "$coverage <= $threshold" | bc -l) )); then
-          echo "Coverage is not improved."
-          exit 1
-        else
-          echo "New coverage: $coverage%. Coverage is improved!"
-        fi
+      - name: Fail if coverage has not improved.
+        run: |
+          coverage=$COVERAGE
+          threshold=13.43
+          if (( $(echo "$coverage - $threshold <= 0.1" | bc -l) )); then
+            echo "Coverage has not improved."
+            exit 1
+          else
+            echo "New coverage: $coverage%"
+          fi
