@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java CI with Maven and MAVEN_OPTS Matrix
 
 on:
   push:
@@ -7,6 +7,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        maven_opts:
+          - "-Xmx2g -Xms512m"
+          - "-Duser.language=en -Duser.country=US"
+          - "-Djava.io.tmpdir=/tmp"
+
     steps:
     - uses: actions/checkout@v4
 
@@ -14,12 +21,13 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
-        cache: 'maven'
-
     - name: Build and Test with Maven
       timeout-minutes: 15
-      run: ./mvnw -B verify
-
+      run: |
+        export MAVEN_OPTS="${{ matrix.maven_opts }}" 
+        ./mvnw -B verify
+        unset MAVEN_OPTS
+        
     - name: Get JaCoCo Coverage
       id: coverage  
       run: |
