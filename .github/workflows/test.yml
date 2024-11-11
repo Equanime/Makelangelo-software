@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         maven_opts:
-          - "-Xmx2g -Xms512m"
+          # - "-Xmx2g -Xms512m" 
           - "-Duser.language=en -Duser.country=US"
           - "-Djava.io.tmpdir=/tmp"
 
