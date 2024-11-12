@@ -19,7 +19,7 @@ jobs:
           - '23'
           # - '24' - don't exist yet
         maven_opts:
-          - "-XX:-UseG1GC" # Disable G1GC (Garbage Collector)
+          - "-XX:-UseG1GC -XX:+UseConcMarkSweepGC" # Change GC (Garbage Collector)
           - "-XX:MaxGCPauseMillis=2000" # GC with more pause time
           - "-Xmx1g -Xms512m" # Compilation with less memory
 
