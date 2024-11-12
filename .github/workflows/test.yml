@@ -21,7 +21,7 @@ jobs:
         maven_opts:
           - "-XX:-UseG1GC -XX:+UseZGC" # Change GC (Garbage Collector)
           - "-XX:MaxGCPauseMillis=2000" # GC with more pause time
-          - "-Xmx1g -Xms512m" # Compilation with less memory
+          - "-Xmx512m -Xms512m" # Compilation with less memory
 
     steps:
     - uses: actions/checkout@v4
