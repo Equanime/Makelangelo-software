@@ -19,9 +19,9 @@ jobs:
           - '23'
           # - '24' - don't exist yet
         maven_opts:
-          - "-Xmx2g -Xms512m" 
-          - "-Duser.language=en -Duser.country=US"
-          - "-Djava.io.tmpdir=/tmp"
+          - "-UseG1GC=false" # Disable G1GC (Garbage Collector)
+          - "-MaxGCPauseMillis=2000" # GC with more pause time
+          - "-Xmx1g -Xms512m" # Compilation with less memory
 
     steps:
     - uses: actions/checkout@v4
