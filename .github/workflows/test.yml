@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        jvm_version:
+          - '11'
+          - '17'
         maven_opts:
           - "-Xmx2g -Xms512m" 
           - "-Duser.language=en -Duser.country=US"
@@ -20,7 +23,7 @@ jobs:
     - uses: actions/setup-java@v4.2.1
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: ${{ matrix.jvm_version }}
     - name: Build and Test with Maven
       timeout-minutes: 15
       run: |
