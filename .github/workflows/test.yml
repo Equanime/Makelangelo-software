@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         maven_opts:
-          # - "-Xmx2g -Xms512m" 
+          - "-Xmx2g -Xms512m" 
           - "-Duser.language=en -Duser.country=US"
           - "-Djava.io.tmpdir=/tmp"
 
@@ -37,7 +37,7 @@ jobs:
     - name: Fail if coverage has not improved.
       run: |
         coverage=$COVERAGE
-        threshold=27.34
+        threshold=28.18
         if (( $(echo "$coverage <= $threshold" | bc -l) )); then
           echo "Coverage is not improved."
           exit 1
