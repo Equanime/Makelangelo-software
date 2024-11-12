@@ -19,8 +19,8 @@ jobs:
           - '23'
           # - '24' - don't exist yet
         maven_opts:
-          - "-UseG1GC=false" # Disable G1GC (Garbage Collector)
-          - "-MaxGCPauseMillis=2000" # GC with more pause time
+          - "-XX:-UseG1GC" # Disable G1GC (Garbage Collector)
+          - "-XX:MaxGCPauseMillis=2000" # GC with more pause time
           - "-Xmx1g -Xms512m" # Compilation with less memory
 
     steps:
