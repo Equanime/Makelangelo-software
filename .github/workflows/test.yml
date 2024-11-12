@@ -12,7 +12,7 @@ jobs:
         jvm_version:
           - '17'
           - '20'
-          - '26'
+          - '23'
         maven_opts:
           - "-Xmx2g -Xms512m" 
           - "-Duser.language=en -Duser.country=US"
