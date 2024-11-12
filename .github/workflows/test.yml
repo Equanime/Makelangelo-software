@@ -11,8 +11,13 @@ jobs:
       matrix:
         jvm_version:
           - '17'
+          # - '18'
+          # - '19'
           - '20'
+          # - '21'
+          # - '22'
           - '23'
+          # - '24' - don't exist yet
         maven_opts:
           - "-Xmx2g -Xms512m" 
           - "-Duser.language=en -Duser.country=US"
