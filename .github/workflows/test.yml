@@ -10,8 +10,9 @@ jobs:
     strategy:
       matrix:
         jvm_version:
-          - '11'
           - '17'
+          - '20'
+          - '26'
         maven_opts:
           - "-Xmx2g -Xms512m" 
           - "-Duser.language=en -Duser.country=US"
