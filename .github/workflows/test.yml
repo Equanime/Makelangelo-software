@@ -19,9 +19,12 @@ jobs:
           # - '23'
           # - '24' - don't exist yet
         maven_opts:
-          - "-XX:-UseG1GC -XX:+UseZGC" # Change GC (Garbage Collector)
-          - "-XX:MaxGCPauseMillis=2000" # GC with more pause time
-          - "-Xmx128m -Xms128m" # Compilation with less memory
+          # - "-XX:-UseG1GC -XX:+UseZGC" # Change GC (Garbage Collector)
+          # - "-XX:MaxGCPauseMillis=2000" # GC with more pause time
+          # - "-Xmx256m -Xms256m" # Compilation with less memory (fail with 128)
+          - "-XX:MaxMetaspaceSize=128m" # Compilation with less memory allocated to class and metadata
+          - "-XX:+TieredCompilation" # Run faster tests with optimized compilation
+          - "-Djava.security.egd=file:/dev/./urandom" # Changing random source
 
     steps:
     - uses: actions/checkout@v4
@@ -46,10 +49,10 @@ jobs:
     - name: Fail if coverage has not improved.
       run: |
         coverage=$COVERAGE
-        threshold=24.46
-        if (( $(echo "$coverage <= $threshold" | bc -l) )); then
-          echo "Coverage ($coverage%) is not improved."
+        threshold=27.33
+        if (( $(echo "$coverage < $threshold" | bc -l) )); then
+          echo "Coverage ($coverage%) has decreased."
           exit 1
         else
-          echo "New coverage: $coverage%. Coverage is improved!"
+          echo "($coverage%). Coverage is still!"
         fi
