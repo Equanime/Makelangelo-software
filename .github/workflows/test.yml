@@ -36,9 +36,9 @@ jobs:
     - name: Build and Test with Maven
       timeout-minutes: 15
       run: |
+        unset MAVEN_OPTS
         export MAVEN_OPTS="${{ matrix.maven_opts }}" 
         ./mvnw -B verify
-        unset MAVEN_OPTS
         
     - name: Get JaCoCo Coverage
       id: coverage  
@@ -54,5 +54,6 @@ jobs:
           echo "Coverage ($coverage%) has decreased."
           exit 1
         else
+          echo "$MAVEN_OPTS"
           echo "($coverage%). Coverage is still!"
         fi
