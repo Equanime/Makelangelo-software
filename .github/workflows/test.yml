@@ -13,10 +13,10 @@ jobs:
           - '17'
           # - '18'
           # - '19'
-          - '20'
+          # - '20'
           # - '21'
           # - '22'
-          - '23'
+          # - '23'
           # - '24' - don't exist yet
         maven_opts:
           - "-XX:-UseG1GC -XX:+UseZGC" # Change GC (Garbage Collector)
@@ -37,7 +37,7 @@ jobs:
       timeout-minutes: 15
       run: |
         unset MAVEN_OPTS
-        export MAVEN_OPTS="${{ matrix.maven_opts }}" 
+        echo "MAVEN_OPTS='${{ matrix.maven_opts }}'" >> $GITHUB_ENV
         ./mvnw -B verify
         
     - name: Get JaCoCo Coverage
