@@ -7,32 +7,53 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        jvm_version:
+          - '17'
+          # - '18'
+          # - '19'
+          - '20'
+          # - '21'
+          # - '22'
+          - '23'
+          # - '24' - don't exist yet
+        maven_opts:
+          - "-XX:-UseG1GC -XX:+UseZGC" # Change GC (Garbage Collector)
+          # - "-XX:MaxGCPauseMillis=2000" # GC with more pause time
+          - "-Xmx256m -Xms256m" # Compilation with less memory (fail with 128)
+          - "-XX:MaxMetaspaceSize=128m" # Compilation with less memory allocated to class and metadata
+          - "-XX:+TieredCompilation" # Run faster tests with optimized compilation
+          - "-Djava.security.egd=file:/dev/./urandom" # Changing random source
+
     steps:
     - uses: actions/checkout@v4
 
     - uses: actions/setup-java@v4.2.1
       with:
         distribution: 'temurin'
-        java-version: '17'
-        cache: 'maven'
-
+        java-version: ${{ matrix.jvm_version }}
     - name: Build and Test with Maven
       timeout-minutes: 15
-      run: ./mvnw -B verify
-
+      run: |
+        echo "MAVEN_OPTS=${{ matrix.maven_opts }}" >> $GITHUB_ENV
+        ./mvnw -B verify
+        
     - name: Get JaCoCo Coverage
       id: coverage  
       run: |
         coverage=$(python3 config/coverage.py target/site/jacoco/jacoco.csv) 
         echo "COVERAGE=$coverage" >> $GITHUB_ENV
 
-    - name: Fail if coverage has not improved.
+    - name: Fail if coverage has decreased
       run: |
         coverage=$COVERAGE
-        threshold=24.46
-        if (( $(echo "$coverage <= $threshold" | bc -l) )); then
-          echo "Coverage is not improved."
+        threshold=27.33
+        echo "Flags : '$MAVEN_OPTS'"
+        echo "Coverage attendu : $threshold%"
+        if (( $(echo "$coverage < $threshold" | bc -l) )); then
+          echo "Coverage has decreased ($coverage%) !!!"
           exit 1
         else
-          echo "New coverage: $coverage%. Coverage is improved!"
+          echo "Coverage is still!"
         fi
