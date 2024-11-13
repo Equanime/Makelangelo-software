@@ -37,7 +37,7 @@ jobs:
       timeout-minutes: 15
       run: |
         unset MAVEN_OPTS
-        echo "MAVEN_OPTS='${{ matrix.maven_opts }}'" >> $GITHUB_ENV
+        echo "MAVEN_OPTS=${{ matrix.maven_opts }}" >> $GITHUB_ENV
         ./mvnw -B verify
         
     - name: Get JaCoCo Coverage
